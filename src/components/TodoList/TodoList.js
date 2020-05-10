@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
 
 export default function TodoList() {
     return (
         <div className="main">
-            TodoList
+            <h1> todolist </h1>
+            <input 
+                type="text" 
+                placeholder="Key in your tasks..." />
+            <hr />
         </div>
     );
 }
+
+
