@@ -2,12 +2,12 @@
 Demo Link : https://codewjoy.github.io/react-login-todolist/dist/index.html
 
 #### Technologies
-React 
-React Router
-React Context 
-Styled-component ( CSS in JS )
-Simple RWD
-Parse REST API
+* React 
+* React Router
+* React Context 
+* Styled-component ( CSS in JS )
+* Simple RWD
+* Parse REST API
 http://docs.parseplatform.org/rest/guide/#logging-in
 
 #### Contact
