@@ -29,7 +29,7 @@ class Profile extends Component {
             alert('Invalid username/password.');
         } else {
             const url = new URL('https://watch-master-staging.herokuapp.com/api/login')
-            var params = { 'username': username, 'password': password }
+            const params = { 'username': username, 'password': password }
             url.search = new URLSearchParams(params).toString();
             fetch(url, {
                 method: 'GET',
