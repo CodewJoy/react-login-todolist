@@ -1,4 +1,16 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
+
+const Label = styled.label`
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    align-items: center;
+`;
+const Span = styled.span`
+    padding: 0 20px;
+`;
+
 
 class List extends Component {
     constructor(props) {
@@ -31,17 +43,21 @@ class List extends Component {
         return (
             <div>
                 {newTodo.map(newTodo => (
-                    <label className="to-do-item" key={newTodo.id}>
+                    <Label key={newTodo.id}>
                         <input
                             type="checkbox"
                             checked={newTodo.isCompleted}
                             id={newTodo.id}
                             onChange={this.handleClick}
                         />
-                        <span>{newTodo.content}</span>
+                        <Span>{newTodo.content}</Span>
                         {/* <span className="checkmark"></span> */}
-                        <div onClick={this.clicktoClose} id={newTodo.id}>X</div>
-                    </label>
+
+                        <button onClick={this.clicktoClose} id={newTodo.id}>
+                            Delete
+                        </button>
+
+                    </Label>
                 ))}
             </div>
         );

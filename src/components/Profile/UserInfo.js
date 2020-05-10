@@ -26,8 +26,8 @@ class UserInfoBase extends Component {
         this.props.userData.updateUserData({ timezone: target.value });
     }
     updateUser = () => {
-        console.log(this.props.userData.sessionToken);
-        console.log(this.props.userData.timezone);
+        // console.log(this.props.userData.sessionToken);
+        // console.log(this.props.userData.timezone);
         const headers = {
             'X-Parse-Application-Id': 'vqYuKPOkLQLYHhk4QTGsGKFwATT4mBIGREI2m8eD',
             'X-Parse-REST-API-Key': '',
@@ -37,8 +37,8 @@ class UserInfoBase extends Component {
         const url = new URL(`https://watch-master-staging.herokuapp.com/api/users/${this.props.userData.objectId}`);
         const formData = new FormData();
         formData.append('timezone', this.props.userData.timezone);
-        console.log(formData);
-        console.log(JSON.stringify(formData));
+        // console.log(formData);
+        // console.log(JSON.stringify(formData));
         return fetch(url, {
             method: 'PUT',
             body: JSON.stringify(formData),
@@ -47,7 +47,7 @@ class UserInfoBase extends Component {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 alert(JSON.stringify(response));
             })
     }
@@ -64,7 +64,7 @@ class UserInfoBase extends Component {
                                     value={this.props.userData.timezone}
                                 />
                                 <button type="submit">
-                                    Edit Timezone
+                                    Submit Edited Timezone
                                 </button>
                             </form>
                         </li>
