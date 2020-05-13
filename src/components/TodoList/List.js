@@ -6,10 +6,12 @@ const Label = styled.label`
     flex-direction: row;
     padding: 10px 0;
     align-items: center;
+    justify-content: space-between;
+    width: 300px;
 `;
-const Span = styled.span`
-    padding: 0 20px;
-`;
+// const Span = styled.span`
+//     padding: 0 20px;
+// `;
 
 
 class List extends Component {
@@ -23,15 +25,15 @@ class List extends Component {
         this.props.closeTodo(event.target.id);
     }
     render() {
-        let todos = this.props.todos;
+        const { todos, status } = this.props;
         let newTodo = []
-        if (this.props.status === 'isCompleted') {
+        if (status === 'isCompleted') {
             for (let i = 0; i < todos.length; i++) {
                 if (todos[i].isCompleted === true) {
                     newTodo.push(todos[i])
                 }
             }
-        } else if (this.props.status === 'active') {
+        } else if (status === 'active') {
             for (let i = 0; i < todos.length; i++) {
                 if (todos[i].isCompleted === false) {
                     newTodo.push(todos[i])
@@ -50,13 +52,10 @@ class List extends Component {
                             id={newTodo.id}
                             onChange={this.handleClick}
                         />
-                        <Span>{newTodo.content}</Span>
-                        {/* <span className="checkmark"></span> */}
-
+                        <span>{newTodo.content}</span>
                         <button onClick={this.clicktoClose} id={newTodo.id}>
                             Delete
                         </button>
-
                     </Label>
                 ))}
             </div>

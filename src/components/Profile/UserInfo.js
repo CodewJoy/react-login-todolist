@@ -52,23 +52,24 @@ class UserInfoBase extends Component {
             })
     }
     render() {
+        const { userData } = this.props;
         return (
             <div>
-                {this.props.userData.timezone ? (
+                {userData.timezone ? (
                     <ul>
-                        <li>Username: {this.props.userData.username}</li>
+                        <li>Username: {userData.username}</li>
                         <li>
                             Timezone:
                             <form onSubmit={this.handleSubmit}>
                                 <input type="text" onChange={this.handleChange}
-                                    value={this.props.userData.timezone}
+                                    value={userData.timezone}
                                 />
                                 <button type="submit">
                                     Submit Edited Timezone
                                 </button>
                             </form>
                         </li>
-                        <li>Code: {this.props.userData.code}</li>
+                        <li>Code: {userData.code}</li>
                     </ul>
                 ) : null}
             </div>

@@ -33,8 +33,9 @@ class TodoList extends Component {
         }, () => console.log(this.state))
     }
     completeStatus = (id) => {
-        for (let i = 0; i < this.state.todos.length; i++) {
-            if (id === String(this.state.todos[i].id)) {
+        const { todos } = this.state;
+        for (let i = 0; i < todos.length; i++) {
+            if (id === String(todos[i].id)) {
                 this.setState((prevState) => {
                     const checkedTodos = prevState.todos[i]
                     checkedTodos.isCompleted = checkedTodos.isCompleted === true ? false : true
@@ -44,51 +45,55 @@ class TodoList extends Component {
         }
     }
     closeTodo = (id) => {
-        for (let i = 0; i < this.state.todos.length; i++) {
-            if (id === String(this.state.todos[i].id)) {
+        const { todos } = this.state;
+        for (let i = 0; i < todos.length; i++) {
+            if (id === String(todos[i].id)) {
                 this.setState((prevState) => {
                     const closeTodos = prevState.todos
+                    // delete 1 element at index i
                     return closeTodos.splice(i, 1)
                 })
             }
         }
     }
     statusChosen = (statusChosen) => {
+        const { status } = this.state;
         if (statusChosen === 'active') {
             this.setState({ status: 'active' }, () => {
-                console.log(this.state.status)
+                console.log(status)
             })
         } else if (statusChosen === 'isCompleted') {
             this.setState({ status: 'isCompleted' }, () => {
-                console.log(this.state.status)
+                console.log(status)
             })
         } else {
             this.setState({ status: 'all' }, () => {
-                console.log(this.state.status)
+                console.log(status)
             })
         }
     }
     render() {
+        const { todoText, todos, status } = this.state;
         return (
             <div className="main">
                 <h1> todolist </h1>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"
-                        value={this.state.todoText}
+                        value={todoText}
                         onChange={this.handleChange}
                         placeholder="Key in your tasks..."
                     />
                 </form>
                 <hr />
                 <List
-                    todos={this.state.todos}
-                    status={this.state.status}
-                    completeStatus={this.completeStatus.bind(this)}
-                    closeTodo={this.closeTodo.bind(this)}
+                    todos={todos}
+                    status={status}
+                    completeStatus={this.completeStatus}
+                    closeTodo={this.closeTodo}
                 />
                 <TaskFilter
-                    statusChosen={this.statusChosen.bind(this)}
+                    statusChosen={this.statusChosen}
                 />
             </div>
         )
