@@ -18,7 +18,7 @@ class TaskFilter extends Component {
 
     render() {
         return (
-            <div className="complete-status">
+            <div>
                 <button onClick={this.changeToAll}>All</button>
                 <button onClick={this.changeToActive}>Active</button>
                 <button onClick={this.changeToCompleted}>Completed</button>

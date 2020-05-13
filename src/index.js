@@ -43,13 +43,13 @@ class App extends React.Component {
                 <Container>
                     <Ul>
                         <Li>
-                            <Link to="/">Home</Link>
+                            <Link to="/"><h3>Home</h3></Link>
                         </Li>
                         <Li>
-                            <Link to="/profile">Profile</Link>
+                            <Link to="/profile"><h3>Profile</h3></Link>
                         </Li>
                         <Li>
-                            <Link to="/todolist">TodoList</Link>
+                            <Link to="/todolist"><h3>TodoList</h3></Link>
                         </Li>
                     </Ul>
                     {/* <hr /> */}

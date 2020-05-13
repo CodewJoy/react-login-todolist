@@ -50,6 +50,7 @@ class TodoList extends Component {
             if (id === String(todos[i].id)) {
                 this.setState((prevState) => {
                     const closeTodos = prevState.todos
+                    // delete 1 element at index i
                     return closeTodos.splice(i, 1)
                 })
             }
